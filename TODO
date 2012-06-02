@@ -56,9 +56,6 @@ for 0.46:
 
 for 0.47:
 
-- remove configfile option "mirror" and use the mirror from
-  "packages-url".
-
 - find_default_debian_mirrors: if parts[2] contains a / (think
   stable/updates for security.d.o), you can't ignore this, it
   will break later...
