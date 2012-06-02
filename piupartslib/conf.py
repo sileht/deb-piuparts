@@ -50,4 +50,12 @@ class Config(UserDict.UserDict):
             elif key in self._mandatory:
                 raise MissingMandatorySetting(filename, key)
 
+    def get_packages_url(self):
+        return "%s/dists/%s/%s/binary-%s/Packages.bz2" % \
+                (self["mirror"], self["distro"], self["area"], self["arch"])
+
+    def get_sources_url(self):
+        return "%s/dists/%s/%s/source/Sources.bz2" % \
+                (self["mirror"], self["distro"], self["area"])
+
 # vi:set et ts=4 sw=4 :
