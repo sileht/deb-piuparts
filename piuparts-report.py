@@ -418,10 +418,12 @@ class Config(piupartslib.conf.Config):
             {
                 "sections": "report",
                 "output-directory": "html",
-                "packages-url": None,
-                "sources-url": None,
                 "master-directory": ".",
                 "description": "",
+                "mirror": None,
+                "distro": None,
+                "area": None,
+                "arch": None,
                 "max-reserved": 1,
             }, "")
 
@@ -588,20 +590,19 @@ class Section:
             os.makedirs(self._master_directory)
 
         logging.debug("Loading and parsing Packages file")
-        logging.info("Fetching %s" % self._config["packages-url"])
-        packages_file = piupartslib.open_packages_url(self._config["packages-url"])
+        logging.info("Fetching %s" % self._config.get_packages_url())
+        packages_file = piupartslib.open_packages_url(self._config.get_packages_url())
         self._binary_db = piupartslib.packagesdb.PackagesDB(prefix=self._master_directory)
         self._binary_db.read_packages_file(packages_file)
         self._binary_db.calc_rrdep_counts()
 
         packages_file.close()
 
-        if self._config["sources-url"]:
-          logging.info("Fetching %s" % self._config["sources-url"])
-          sources_file = piupartslib.open_packages_url(self._config["sources-url"])
-          self._source_db = piupartslib.packagesdb.PackagesDB()
-          self._source_db.read_packages_file(sources_file)
-          sources_file.close()
+        logging.info("Fetching %s" % self._config.get_sources_url())
+        sources_file = piupartslib.open_packages_url(self._config.get_sources_url())
+        self._source_db = piupartslib.packagesdb.PackagesDB()
+        self._source_db.read_packages_file(sources_file)
+        sources_file.close()
 
         self._log_name_cache = {}
 
@@ -1020,7 +1021,7 @@ class Section:
             "section": html_protect(self._config.section),
             "description": html_protect(self._config["description"]),
             "tablerows": tablerows,
-            "packagesurl": html_protect(self._config["packages-url"]), 
+            "packagesurl": html_protect(self._config.get_packages_url()),
            }))
 
     def _show_providers(self, dep):
@@ -1134,8 +1135,7 @@ class Section:
 
         total_packages = self.write_counts_summary()
 
-        if self._config["sources-url"]:
-            self.create_package_summaries(logs_by_dir)
+        self.create_package_summaries(logs_by_dir)
 
         logging.debug("Writing section index page")    
         self.write_section_index_page(dirs, total_packages)
