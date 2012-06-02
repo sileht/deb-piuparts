@@ -435,11 +435,15 @@ is being run.
 
 * "sources-url" is a URL to the Sources.bz2 file for your mirror. "sources-url" must match "packages-url", if it is not defined, piuparts-reports will not generate source centric html pages.
 
-* "mirror" tells the slave which mirror it is to use. The slave gives this to piuparts when it runs it. Components must not be used here. "packages-url" defines which component to use. This setting is redundant and should go away.
-
 * "piuparts-cmd" is the command the slave uses to start piuparts. It should include 'sudo' if necessary so that piuparts runs with sufficient priviledges to do its testing (and that means root priviledges).
 
-* "distro" is the distribution the slave should tell piuparts to use for basic install/purge testing. This can be left empty if only upgrade tests should be run.
+* "mirror" tells the slave which mirror it is to use. The slave gives this to piuparts when it runs it. The URLs for Packages and Sources files will be generated from this setting, too. Mandatory. No default.
+
+* "distro" is the distribution the slave should tell piuparts to use for basic install/purge testing. Mandatory. No default.
+
+* "area" is the archive area to use, set to one of main, contrib, non-free. Mandatory. No default.
+
+* "arch" is the architecture to use. Mandatory. No default.
 
 * "chroot-tgz" is the name of the file the slave should use for the tarball to keep the chroot for the basic install/purge testing. If the tarball doesn't exist, the slave creates it. This can be left empty if only upgrade tests should be run.
 
