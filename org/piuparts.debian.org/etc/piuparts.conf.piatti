@@ -27,8 +27,6 @@ reschedule-fail-count = 25
 precedence = 1
 description = Debian sid / main: package installation, removal and purge test.
 master-command = PYTHONPATH=/org/piuparts.debian.org/lib/python2.6/dist-packages:/org/piuparts.debian.org/lib/python2.7/dist-packages python /org/piuparts.debian.org/share/piuparts/piuparts-master sid
-packages-url = http://piatti.debian.org/debian/dists/sid/main/binary-amd64/Packages.bz2
-sources-url = http://piatti.debian.org/debian/dists/sid/main/source/Sources.bz2
 mirror = http://piatti.debian.org/debian/
 piuparts-cmd = sudo /org/piuparts.debian.org/sbin/piuparts --warn-on-others --skip-logrotatefiles-test --scriptsdir /etc/piuparts/scripts/ --tmpdir /org/piuparts.debian.org/tmp
 # Once there are no packages left which leave files on purge behind,
@@ -45,8 +43,6 @@ log-file = sid.log
 precedence = 3
 description = Debian main: package installation in sid and dist-upgrade to testing, then removal and purge test.
 master-command = PYTHONPATH=/org/piuparts.debian.org/lib/python2.6/dist-packages:/org/piuparts.debian.org/lib/python2.7/dist-packages python /org/piuparts.debian.org/share/piuparts/piuparts-master testing2sid
-packages-url = http://piatti.debian.org/debian/dists/sid/main/binary-amd64/Packages.bz2
-sources-url = http://piatti.debian.org/debian/dists/sid/main/source/Sources.bz2
 mirror = http://piatti.debian.org/debian/
 piuparts-cmd = sudo /org/piuparts.debian.org/sbin/piuparts --warn-on-others --warn-on-leftovers-after-purge --skip-logrotatefiles-test --scriptsdir /etc/piuparts/scripts/ --tmpdir /org/piuparts.debian.org/tmp
 upgrade-test-distros = testing sid
@@ -63,8 +59,6 @@ log-file = testing2sid.log
 precedence = 2
 description = Debian wheezy / main: package installation, removal and purge test.
 master-command = PYTHONPATH=/org/piuparts.debian.org/lib/python2.6/dist-packages:/org/piuparts.debian.org/lib/python2.7/dist-packages python /org/piuparts.debian.org/share/piuparts/piuparts-master wheezy
-packages-url = http://piatti.debian.org/debian/dists/wheezy/main/binary-amd64/Packages.bz2
-sources-url = http://piatti.debian.org/debian/dists/wheezy/main/source/Sources.bz2
 mirror = http://piatti.debian.org/debian/
 piuparts-cmd = sudo /org/piuparts.debian.org/sbin/piuparts --warn-on-others --warn-on-leftovers-after-purge --skip-logrotatefiles-test --scriptsdir /etc/piuparts/scripts/ --tmpdir /org/piuparts.debian.org/tmp
 distro = wheezy
@@ -79,8 +73,6 @@ log-file = wheezy.log
 precedence = 2
 description = Debian main: package installation in squeeze and dist-upgrade to wheezy, then removal and purge test.
 master-command = PYTHONPATH=/org/piuparts.debian.org/lib/python2.6/dist-packages:/org/piuparts.debian.org/lib/python2.7/dist-packages python /org/piuparts.debian.org/share/piuparts/piuparts-master squeeze2wheezy
-packages-url = http://piatti.debian.org/debian/dists/wheezy/main/binary-amd64/Packages.bz2
-sources-url = http://piatti.debian.org/debian/dists/wheezy/main/source/Sources.bz2
 mirror = http://piatti.debian.org/debian/
 piuparts-cmd = sudo /org/piuparts.debian.org/sbin/piuparts --warn-on-others --warn-on-leftovers-after-purge --skip-logrotatefiles-test --no-eatmydata --scriptsdir /etc/piuparts/scripts/ --tmpdir /org/piuparts.debian.org/tmp
 upgrade-test-distros = squeeze wheezy
@@ -96,8 +88,6 @@ log-file = squeeze2wheezy.log
 precedence = 4
 description = Debian squeeze / main: package installation, removal and purge test.
 master-command = PYTHONPATH=/org/piuparts.debian.org/lib/python2.6/dist-packages:/org/piuparts.debian.org/lib/python2.7/dist-packages python /org/piuparts.debian.org/share/piuparts/piuparts-master squeeze
-packages-url = http://piatti.debian.org/debian/dists/squeeze/main/binary-amd64/Packages.bz2
-sources-url = http://piatti.debian.org/debian/dists/squeeze/main/source/Sources.bz2
 mirror = http://piatti.debian.org/debian/
 piuparts-cmd = sudo /org/piuparts.debian.org/sbin/piuparts --warn-on-others --warn-on-leftovers-after-purge --skip-logrotatefiles-test --no-eatmydata --scriptsdir /etc/piuparts/scripts/ --tmpdir /org/piuparts.debian.org/tmp
 distro = squeeze
@@ -115,8 +105,6 @@ max-reserved = 0
 precedence = 99
 description = Debian main: package installation in lenny and dist-upgrade to squeeze, then removal and purge test.
 master-command = PYTHONPATH=/org/piuparts.debian.org/lib/python2.6/dist-packages:/org/piuparts.debian.org/lib/python2.7/dist-packages python /org/piuparts.debian.org/share/piuparts/piuparts-master lenny2squeeze
-packages-url = http://piatti.debian.org/debian/dists/squeeze/main/binary-amd64/Packages.bz2
-sources-url = http://piatti.debian.org/debian/dists/squeeze/main/source/Sources.bz2
 mirror = http://piatti.debian.org/debian/
 piuparts-cmd = sudo /org/piuparts.debian.org/sbin/piuparts --warn-on-others --warn-on-leftovers-after-purge --skip-logrotatefiles-test --dpkg-noforce-unsafe-io --no-eatmydata --scriptsdir /etc/piuparts/scripts/ --tmpdir /org/piuparts.debian.org/tmp
 upgrade-test-distros = lenny squeeze
